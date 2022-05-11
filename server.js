@@ -12,8 +12,7 @@ app.use(
   })
 );
 
-// for Heroku prepend port number with:    process.env.PORT ||
-app.listen(5002, function (err) {
+app.listen(process.env.PORT || 5002, function (err) {
   if (err) console.log(err);
 });
 
