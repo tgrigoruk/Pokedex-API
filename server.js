@@ -25,20 +25,6 @@ app.get("/pokemon/:id", function (req, res) {
   res.send(pokemon);
 });
 
-// app.get("/profile/:id", function (req, res) {
-//   const url = pokeapiUrl + req.params.id;
-//   data = "";
-//   fetch(url, )
-//   // https.get(url, function (https_res) {
-//   //   https_res.on("data", function (chunk) {
-//   //     data += chunk;
-//   //   });
-//   //   https_res.on("end", function () {
-//   //     res.render("profile.ejs", extractPokemonData(data));
-//   //   });
-//   // });
-// });
-
 app.get("/type", function (req, res) {
   res.send(pokemonDB.type);
 });
