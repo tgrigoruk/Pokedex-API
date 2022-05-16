@@ -3,20 +3,15 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 
-const bodyparser = require("body-parser");
-app.use(
-  bodyparser.urlencoded({
-    parameterLimit: 100000,
-    limit: "50mb",
-    extended: true,
-  })
-);
-
 app.listen(process.env.PORT || 5002, function (err) {
   if (err) console.log(err);
 });
 
 const pokemonDB = require("./pokemon.json");
+
+app.get("/", function (req, res) {
+  res.send(`<h1>Pokemon API</h1>`);
+});
 
 app.get("/pokemon/:id", function (req, res) {
   pokemon = pokemonDB.pokemon.filter((p) => {
@@ -29,8 +24,8 @@ app.get("/type", function (req, res) {
   res.send(pokemonDB.type);
 });
 app.get("/ability", function (req, res) {
-  res.send(pokemonDB.type);
+  res.send(pokemonDB.ability);
 });
 app.get("/pokemon-color", function (req, res) {
-  res.send(pokemonDB.type);
+  res.send(pokemonDB["pokemon-color"]);
 });
